@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# Creditt
 
-## Project info
+Creditt is a web application built with React and TypeScript.
 
-**URL**: https://lovable.dev/projects/e7191639-c59f-4c5c-ab17-c3f0488eac13
+## Tech stack
 
-## How can I edit this code?
+- React + TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- Supabase (via @supabase/supabase-js)
 
-There are several ways of editing your application.
+## Getting started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e7191639-c59f-4c5c-ab17-c3f0488eac13) and start prompting.
+- Node.js 18+ (recommended)
+- npm (or your preferred package manager)
 
-Changes made via Lovable will be committed automatically to this repo.
+### Install
 
-**Use your preferred IDE**
+```bash
+git clone https://github.com/h55n/Creditt.git
+cd Creditt
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Run locally
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Then open the URL printed by Vite (typically http://localhost:5173).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Preview a production build
 
-## What technologies are used for this project?
+```bash
+npm run preview
+```
 
-This project is built with:
+### Lint
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run lint
+```
 
-## How can I deploy this project?
+## Configuration
 
-Simply open [Lovable](https://lovable.dev/projects/e7191639-c59f-4c5c-ab17-c3f0488eac13) and click on Share -> Publish.
+This project may require environment variables for Supabase and other services.
 
-## Can I connect a custom domain to my Lovable project?
+- Prefer using a local `.env` file for development.
+- If a `.env.example` file exists, copy it and fill in values.
+- Search the codebase for `import.meta.env` to see what variables are read by the app.
 
-Yes, you can!
+> Security note: Never commit secrets (API keys, service role keys, etc.) to the repository.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Project structure (high level)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `src/` — application code
+- `public/` — static assets
+- `supabase/` — Supabase configuration/migrations (if applicable)
+
+## Contributing
+
+1. Create a feature branch
+2. Make changes
+3. Run lint/build
+4. Open a pull request
+
+## License
+
+Add a LICENSE file if you plan to distribute this project.
