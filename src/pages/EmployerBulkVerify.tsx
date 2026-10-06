@@ -5,13 +5,20 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, XCircle, Upload, Download, FileText } from 'lucide-react';
 import { useCredentials } from '@/contexts/CredentialContext';
+import type { Credential } from '@/contexts/CredentialContext';
 import Navbar from '@/components/Navbar';
 import { toast } from '@/hooks/use-toast';
+
+type BulkVerificationResult = {
+  id: string;
+  isValid: boolean;
+  credential: Credential | null;
+};
 
 const EmployerBulkVerify = () => {
   const { credentials } = useCredentials();
   const [credentialIds, setCredentialIds] = useState('');
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<BulkVerificationResult[]>([]);
   const [isVerifying, setIsVerifying] = useState(false);
 
   const handleBulkVerify = async () => {
@@ -34,8 +41,8 @@ const EmployerBulkVerify = () => {
       const credential = credentials.find(c => c.id === id);
       return {
         id,
-        isValid: credential && credential.status === 'verified',
-        credential: credential || null,
+        isValid: credential?.status === 'verified',
+        credential: credential ?? null,
       };
     });
 
