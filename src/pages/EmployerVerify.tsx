@@ -6,13 +6,18 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CheckCircle2, XCircle, Scan, Search, Shield, Award } from 'lucide-react';
 import { useCredentials } from '@/contexts/CredentialContext';
+import type { Credential } from '@/contexts/CredentialContext';
 import Navbar from '@/components/Navbar';
 import { toast } from '@/hooks/use-toast';
+
+type VerificationResult =
+  | { isValid: true; credential: Credential }
+  | { isValid: false };
 
 const EmployerVerify = () => {
   const { credentials } = useCredentials();
   const [credentialId, setCredentialId] = useState('');
-  const [verificationResult, setVerificationResult] = useState<any>(null);
+  const [verificationResult, setVerificationResult] = useState<VerificationResult | null>(null);
   const [isVerifying, setIsVerifying] = useState(false);
 
   const handleVerify = async () => {

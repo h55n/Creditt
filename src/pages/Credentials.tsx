@@ -204,7 +204,15 @@ const Credentials = () => {
         </div>
 
         {/* Filters */}
-        <Tabs value={filter} onValueChange={(v) => setFilter(v as any)} className="mb-6">
+        <Tabs
+          value={filter}
+          onValueChange={(value) => {
+            if (value === 'all' || value === 'verified' || value === 'pending') {
+              setFilter(value);
+            }
+          }}
+          className="mb-6"
+        >
           <TabsList>
             <TabsTrigger value="all">All ({userCredentials.length})</TabsTrigger>
             <TabsTrigger value="verified">

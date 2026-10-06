@@ -7,7 +7,16 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search, Filter, MapPin, Briefcase, Award } from 'lucide-react';
 import { useCredentials } from '@/contexts/CredentialContext';
+import type { Credential } from '@/contexts/CredentialContext';
 import Navbar from '@/components/Navbar';
+
+type LearnerGroup = {
+  userId: string;
+  name: string;
+  credentials: Credential[];
+  skills: Set<string>;
+  maxLevel: number;
+};
 
 const EmployerSearch = () => {
   const { credentials } = useCredentials();
@@ -18,7 +27,7 @@ const EmployerSearch = () => {
 
   // Get unique skills and learners
   const allSkills = Array.from(new Set(credentials.flatMap(c => c.skills)));
-  const learnerGroups = credentials.reduce((acc, cred) => {
+  const learnerGroups = credentials.reduce<Record<string, LearnerGroup>>((acc, cred) => {
     if (!acc[cred.userId]) {
       acc[cred.userId] = {
         userId: cred.userId,
@@ -32,15 +41,15 @@ const EmployerSearch = () => {
     cred.skills.forEach(skill => acc[cred.userId].skills.add(skill));
     acc[cred.userId].maxLevel = Math.max(acc[cred.userId].maxLevel, cred.nsqfLevel);
     return acc;
-  }, {} as Record<string, any>);
+  }, {});
 
   const learners = Object.values(learnerGroups);
 
   // Filter learners
   const filteredLearners = learners.filter(learner => {
     const matchesSearch = searchQuery === '' || 
-      Array.from(learner.skills).some((skill: unknown) => 
-        (skill as string).toLowerCase().includes(searchQuery.toLowerCase())
+      Array.from(learner.skills).some((skill) =>
+        skill.toLowerCase().includes(searchQuery.toLowerCase())
       );
     const matchesLevel = selectedLevel === 'all' || learner.maxLevel === parseInt(selectedLevel);
     const matchesSkill = selectedSkill === 'all' || learner.skills.has(selectedSkill);
