@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Shield, TrendingUp, Award, CheckCircle2, Sparkles, Upload, Share2, Users } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 const Index = () => {
   const navigate = useNavigate();
   return <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-hero pt-20 pb-32">
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-size-[40px_40px]" />
         <div className="container relative mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <Badge className="mb-4 bg-white/20 text-white hover:bg-white/30">India's First Digital Skills Passport -
