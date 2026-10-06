@@ -196,19 +196,19 @@ const EmployerBulkVerify = () => {
                 <h3 className="font-semibold mb-4">How It Works</h3>
                 <ol className="space-y-3 text-sm">
                   <li className="flex gap-3">
-                    <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary font-semibold text-xs">
+                    <span className="shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary font-semibold text-xs">
                       1
                     </span>
                     <span>Enter credential IDs (one per line) or upload a CSV file</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary font-semibold text-xs">
+                    <span className="shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary font-semibold text-xs">
                       2
                     </span>
                     <span>Click "Verify All" to start bulk verification</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary font-semibold text-xs">
+                    <span className="shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary font-semibold text-xs">
                       3
                     </span>
                     <span>Review results and export to CSV for your records</span>
