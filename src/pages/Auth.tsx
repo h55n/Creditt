@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -87,7 +87,7 @@ const Auth = () => {
           <div className="hidden md:block text-white">
             <div className="space-y-8">
               <div className="flex items-center gap-3">
-                <div className="rounded-xl bg-white/10 backdrop-blur-sm p-4 border border-white/20">
+                <div className="rounded-xl bg-white/10 backdrop-blur-xs p-4 border border-white/20">
                   <Shield className="h-10 w-10 text-white" />
                 </div>
                 <h1 className="text-5xl font-bold">Credeed</h1>
@@ -102,7 +102,7 @@ const Auth = () => {
               </div>
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-success/20 backdrop-blur-sm p-3 border border-success/30">
+                  <div className="rounded-xl bg-success/20 backdrop-blur-xs p-3 border border-success/30">
                     <Shield className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -111,7 +111,7 @@ const Auth = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="rounded-xl bg-primary/20 backdrop-blur-sm p-3 border border-primary/30">
+                  <div className="rounded-xl bg-primary/20 backdrop-blur-xs p-3 border border-primary/30">
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
