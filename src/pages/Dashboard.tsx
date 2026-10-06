@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCredentials } from '@/contexts/CredentialContext';
 import { Card } from "@/components/ui/card";
@@ -83,10 +83,10 @@ const Dashboard = () => {
         <div className="mb-10 grid gap-6 md:grid-cols-4">
           <Card className="group border-0 bg-gradient-success p-7 shadow-elevated hover:shadow-glow hover:shadow-success/30 transition-all duration-300 hover:scale-[1.02]">
             <div className="mb-5 flex items-center justify-between">
-              <div className="rounded-2xl bg-white/25 backdrop-blur-sm p-3.5 group-hover:scale-110 transition-transform duration-300">
+              <div className="rounded-2xl bg-white/25 backdrop-blur-xs p-3.5 group-hover:scale-110 transition-transform duration-300">
                 <TrendingUp className="h-7 w-7 text-white" />
               </div>
-              <Badge className="bg-white/25 backdrop-blur-sm text-white border-0 rounded-xl px-3 py-1.5 font-bold">
+              <Badge className="bg-white/25 backdrop-blur-xs text-white border-0 rounded-xl px-3 py-1.5 font-bold">
                 +{scoreChange}%
               </Badge>
             </div>
@@ -96,10 +96,10 @@ const Dashboard = () => {
 
           <Card className="group border-0 bg-gradient-hero p-7 shadow-elevated hover:shadow-glow hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02]">
             <div className="mb-5 flex items-center justify-between">
-              <div className="rounded-2xl bg-white/25 backdrop-blur-sm p-3.5 group-hover:scale-110 transition-transform duration-300">
+              <div className="rounded-2xl bg-white/25 backdrop-blur-xs p-3.5 group-hover:scale-110 transition-transform duration-300">
                 <Award className="h-7 w-7 text-white" />
               </div>
-              <Badge className="bg-white/25 backdrop-blur-sm text-white border-0 rounded-xl px-3 py-1.5 font-bold">
+              <Badge className="bg-white/25 backdrop-blur-xs text-white border-0 rounded-xl px-3 py-1.5 font-bold">
                 {verifiedCount}/{totalCredentials}
               </Badge>
             </div>
@@ -109,10 +109,10 @@ const Dashboard = () => {
 
           <Card className="group border-0 bg-gradient-secondary p-7 shadow-elevated hover:shadow-glow hover:shadow-secondary/30 transition-all duration-300 hover:scale-[1.02]">
             <div className="mb-5 flex items-center justify-between">
-              <div className="rounded-2xl bg-white/25 backdrop-blur-sm p-3.5 group-hover:scale-110 transition-transform duration-300">
+              <div className="rounded-2xl bg-white/25 backdrop-blur-xs p-3.5 group-hover:scale-110 transition-transform duration-300">
                 <CheckCircle2 className="h-7 w-7 text-white" />
               </div>
-              <Badge className="bg-white/25 backdrop-blur-sm text-white border-0 rounded-xl px-3 py-1.5 font-bold">
+              <Badge className="bg-white/25 backdrop-blur-xs text-white border-0 rounded-xl px-3 py-1.5 font-bold">
                 {Math.round((verifiedCount / totalCredentials) * 100)}%
               </Badge>
             </div>
@@ -122,7 +122,7 @@ const Dashboard = () => {
 
           <Card className="group border-0 bg-gradient-accent p-7 shadow-elevated hover:shadow-glow hover:shadow-accent/30 transition-all duration-300 hover:scale-[1.02]">
             <div className="mb-5 flex items-center justify-between">
-              <div className="rounded-2xl bg-white/25 backdrop-blur-sm p-3.5 group-hover:scale-110 transition-transform duration-300">
+              <div className="rounded-2xl bg-white/25 backdrop-blur-xs p-3.5 group-hover:scale-110 transition-transform duration-300">
                 <Eye className="h-7 w-7 text-white" />
               </div>
               <ArrowUpRight className="h-5 w-5 text-white group-hover:translate-x-0.5 group-hover:translate-y-[-2px] transition-transform duration-300" />
@@ -136,7 +136,7 @@ const Dashboard = () => {
           {/* Main Content */}
           <div className="space-y-8 lg:col-span-2">
             {/* Recent Credentials */}
-            <Card className="border-0 bg-card/60 backdrop-blur-sm shadow-elevated overflow-hidden">
+            <Card className="border-0 bg-card/60 backdrop-blur-xs shadow-elevated overflow-hidden">
               <div className="border-b p-8 bg-gradient-card">
                 <div className="flex items-center justify-between">
                   <div>
@@ -188,7 +188,7 @@ const Dashboard = () => {
             </Card>
 
             {/* NSQF Distribution */}
-            <Card className="border-0 bg-card/60 backdrop-blur-sm shadow-elevated overflow-hidden">
+            <Card className="border-0 bg-card/60 backdrop-blur-xs shadow-elevated overflow-hidden">
               <div className="border-b p-8 bg-gradient-card">
                 <h2 className="text-2xl font-bold mb-1">NSQF Level Distribution</h2>
                 <p className="text-muted-foreground">Your credentials mapped to qualification framework</p>
@@ -217,7 +217,7 @@ const Dashboard = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Profile Completeness */}
-            <Card className="border-0 shadow-elevated p-8 bg-gradient-card backdrop-blur-sm">
+            <Card className="border-0 shadow-elevated p-8 bg-gradient-card backdrop-blur-xs">
               <h3 className="font-bold text-xl mb-7">Profile Completeness</h3>
               <div className="space-y-7">
                 <div>
@@ -232,13 +232,13 @@ const Dashboard = () => {
                 <div className="space-y-4 pt-6 border-t">
                   <p className="font-semibold text-muted-foreground mb-4">Next Steps:</p>
                   <div className="flex items-start gap-4 group">
-                    <div className="h-8 w-8 rounded-full bg-success/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="h-8 w-8 rounded-full bg-success/15 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                       <div className="h-3 w-3 rounded-full bg-success shadow-glow shadow-success/50" />
                     </div>
                     <span className="text-sm font-medium">Add 5 more credentials</span>
                   </div>
                   <div className="flex items-start gap-4 group">
-                    <div className="h-8 w-8 rounded-full bg-warning/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="h-8 w-8 rounded-full bg-warning/15 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                       <div className="h-3 w-3 rounded-full bg-warning shadow-glow shadow-warning/50" />
                     </div>
                     <span className="text-sm font-medium">Complete Aadhaar verification</span>
@@ -248,7 +248,7 @@ const Dashboard = () => {
             </Card>
 
             {/* Recommended Next Steps */}
-            <Card className="border-0 shadow-elevated p-8 bg-gradient-card backdrop-blur-sm">
+            <Card className="border-0 shadow-elevated p-8 bg-gradient-card backdrop-blur-xs">
               <h3 className="font-bold text-xl mb-7">Recommended Next Steps</h3>
               <div className="space-y-4">
                 <div className="group flex items-start gap-4 p-5 rounded-2xl bg-background/50 border-2 border-border/50 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 hover:shadow-card cursor-pointer">

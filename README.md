@@ -8,21 +8,25 @@ Creditt is a web application built with React and TypeScript.
 - Vite
 - Tailwind CSS
 - shadcn/ui
-- Supabase (via @supabase/supabase-js)
+- Supabase (via `@supabase/supabase-js`)
+
+## Browser support
+
+Tailwind CSS 4 requires modern CSS features and targets Safari 16.4+, Chrome 111+, and Firefox 128+. Older browsers may not render all styles correctly.
 
 ## Getting started
 
 ### Prerequisites
 
-- Node.js 18+ (recommended)
-- npm (or your preferred package manager)
+- Node.js 20.19+ or 22.12+ (required by Vite 8)
+- npm
 
 ### Install
 
 ```bash
 git clone https://github.com/h55n/Creditt.git
 cd Creditt
-npm install
+npm ci
 ```
 
 ### Run locally
@@ -31,7 +35,7 @@ npm install
 npm run dev
 ```
 
-Then open the URL printed by Vite (typically http://localhost:5173).
+Then open <http://localhost:8080>.
 
 ### Build
 
@@ -71,7 +75,7 @@ This project may require environment variables for Supabase and other services.
 
 1. Create a feature branch
 2. Make changes
-3. Run lint/build
+3. Run lint, type-check, and build
 4. Open a pull request
 
 ## License
