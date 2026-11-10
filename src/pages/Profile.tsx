@@ -33,14 +33,17 @@ const Profile = () => {
   };
 
   const handleDownloadQR = () => {
-    const canvas = document.getElementById('qr-code') as HTMLCanvasElement;
-    if (canvas) {
-      const url = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.download = `credeed-profile-${user.id}.png`;
-      link.href = url;
-      link.click();
-    }
+    const qrCode = document.getElementById('qr-code');
+    if (!qrCode) return;
+
+    const svg = new XMLSerializer().serializeToString(qrCode);
+    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.download = `credeed-profile-${user.id}.svg`;
+    link.href = url;
+    link.click();
+    URL.revokeObjectURL(url);
     toast({
       title: "QR Code Downloaded",
       description: "Your profile QR code has been saved",
